@@ -13,7 +13,7 @@ export class AurelaiAuthDreamfactory {
     this.authService.login(dfconfig.credentials())
       .then(response => {
         this.username = response.name;
-        console.log("success logged " + response);
+        console.log("login success");
       })
       .catch(err => {
         console.log("login failure");
