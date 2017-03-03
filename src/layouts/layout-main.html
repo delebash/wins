@@ -1,0 +1,16 @@
+<template>
+  <require from="sass/index.css"></require>
+  <require from="font-awesome/font-awesome.css"></require>
+  <require from="./nav-bar"></require>
+  <!--<require from="ej/themes/ej.widgets.core.bootstrap.min.css"></require>-->
+  <!--<require from="ej/themes/bootstrap-theme/ej.theme.min.css"></require>-->
+  <!--<require from="ej/themes/responsive-css/ej.responsive.css"></require>-->
+  <!--<require from="ej/themes/responsive-css/ejgrid.responsive.css"></require>-->
+  <nav-bar router.bind="router"></nav-bar>
+
+  <div class="page-host">
+    <br>
+    <br>
+    <router-view></router-view>
+  </div>
+</template>
