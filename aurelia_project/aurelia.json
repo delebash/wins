@@ -108,6 +108,7 @@
         "name": "aurelia-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
+          "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
           "node_modules/whatwg-fetch/fetch.js",
           "node_modules/requirejs/require.js"
         ],
