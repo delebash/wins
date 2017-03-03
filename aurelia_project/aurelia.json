@@ -28,8 +28,8 @@
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "src/css/sass/index.scss",
-    "watch": "src/css/sass/**/*.scss"
+    "source": "src/sass/index.scss",
+    "watch": "src/sass/**/*.scss"
   },
   "cssProcessor": {
     "id": "none",
@@ -49,8 +49,8 @@
   "dist": {
     "output": "dist",
     "sources": [
-      "./scripts/**/*",
-      "./index.html"
+      "./index.html",
+      "./scripts/**/*"
     ]
   },
   "paths": {
@@ -79,7 +79,7 @@
     ],
     "loader": {
       "type": "require",
-      "configTarget": "vendor-bundle.js",
+      "configTarget": "aurelia-bundle.js",
       "includeBundleMetadataInConfig": "auto",
       "plugins": [
         {
@@ -105,9 +105,10 @@
         ]
       },
       {
-        "name": "vendor-bundle.js",
+        "name": "aurelia-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
+          "node_modules/whatwg-fetch/fetch.js",
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
@@ -136,18 +137,6 @@
           "aurelia-fetch-client",
           "aurelia-api",
           "extend",
-          "jquery",
-          {
-            "name": "jquery.easing",
-            "path": "../node_modules/jquery-easing/dist",
-            "main": "jquery.easing.1.3.umd.min.js"
-          },
-
-          {
-            "name": "jsrender",
-            "path": "../node_modules/jsrender",
-            "main": "jsrender.min.js"
-          },
           {
             "name": "aurelia-authentication",
             "path": "../node_modules/aurelia-authentication/dist/amd",
@@ -166,93 +155,13 @@
             ]
           },
           {
-            "name": "ej",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "common/ej.core.min",
-            "deps": [
-              "jquery"
-            ],
-            "exports": "ej"
-          },
-          {
-            "name": "ej.data",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "common/ej.data.min"
-          },
-          {
-            "name": "ej.pager",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.pager.min"
-          },
-          {
-            "name": "ej.scroller",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "common/ej.scroller.min"
-          },
-          {
-            "name": "ej.waitingpopup",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.waitingpopup.min"
-          },
-          {
-            "name": "ej.dropdownlist",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.dropdownlist.min"
-          },
-          {
-            "name": "ej.dialog",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.dialog.min"
-          },
-          {
-            "name": "ej.button",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.button.min"
-          },
-          {
-            "name": "ej.autocomplete",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.autocomplete.min"
-          },
-          {
-            "name": "ej.datepicker",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.datepicker.min"
-          },
-          {
-            "name": "ej.timepicker",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.timepicker.min"
-          },
-          {
-            "name": "ej.datetimepicker",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.datetimepicker.min"
-          },
-          {
-            "name": "ej.checkbox",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.checkbox.min"
-          },
-          {
-            "name": "ej.editor",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.editor.min"
-          },
-          {
-            "name": "ej.grid",
-            "path": "../node_modules/syncfusion-javascript/Scripts/ej",
-            "main": "web/ej.grid.min",
-            "exports":"ejGrid"
-          },
-          {
             "name": "bootstrap",
             "path": "../node_modules/bootstrap/dist",
             "main": "js/bootstrap.min",
-            "deps": [
-              "jquery"
-            ],
-            "exports": "$"
+            "exports": "$",
+            "resources": [
+              "css/bootstrap.min.css"
+            ]
           },
           {
             "name": "aurelia-templating-resources",
@@ -275,10 +184,12 @@
     ],
     "copyFiles": {
       "../node_modules/font-awesome/fonts/**/*": "../dist/fonts",
-      "../node_modules/bootstrap/dist/fonts/**/*": "../dist/fonts",
-      "./assets/**/*": "../dist/",
-      "../node_modules/syncfusion-javascript/Content/ej/web/common-images/**/*": "../dist/common-images",
-      "../node_modules/syncfusion-javascript/Content/ej/web/bootstrap-theme/images/**/*": "../dist/images"
+      "./assets/**/*": "../dist",
+      "../node_modules/jquery/dist/jquery.min.js": "../dist/vendor/jquery",
+      "../node_modules/jquery.easing/jquery.easing.min.js": "../dist/vendor/jquery",
+      "../node_modules/jsrender/jsrender.min.js": "../dist/vendor/jquery",
+      "../node_modules/tether/dist/js/tether.js": "../dist/vendor/tether",
+      "../vendor/**/*": "../dist/vendor"
     }
   }
 }

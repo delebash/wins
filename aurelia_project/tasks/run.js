@@ -4,7 +4,7 @@ import historyApiFallback from 'connect-history-api-fallback/lib';
 import project from '../aurelia.json';
 import build from './build';
 import {CLIOptions} from 'aurelia-cli';
-import copyFiles from './copy-files';
+import clean from './clean';
 
 function log(message) {
   console.log(message); //eslint-disable-line no-console
@@ -59,11 +59,17 @@ let run;
 
 if (CLIOptions.hasFlag('watch')) {
   run = gulp.series(
+    clean,
     serve,
     watch
   );
 } else {
   run = serve;
 }
+
+// function cleandist(done) {
+//   console.log('in clean run');
+//   done()
+//}
 
 export default run;
