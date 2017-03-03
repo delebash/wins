@@ -2,10 +2,10 @@ export default {
   //--------------------------------------------------------------------------
 //  DreamFactory 2.0 instance specific constants
 //--------------------------------------------------------------------------
-  INSTANCE_URL: 'https://api.test.com',
-  APP_API_KEY: 'test',
+  INSTANCE_URL: 'https://api.dsfg.com',
+  APP_API_KEY: 'sdfg',
   APP_NAME: 'northwind-app',
-  email: 'test@test.com',
+  email: 'sfdg@sdfg.com',
   password: 'test12345',
   api: '/api/v2/',
   db: 'northwind/',
